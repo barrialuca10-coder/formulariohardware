@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Relevamiento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="logo">Soporte Técnico</span>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="formulario.html" class="active">Formulario de Relevamiento</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="form-container">
+            <header class="form-header">
+                <h2>Formulario Técnico de Hardware</h2>
+                <p>Carga de datos del equipo evaluado</p>
+            </header>
+
+            <form action="#" method="POST">
+                
+                <div class="form-group">
+                    <label for="tecnico">Nombre del Técnico:</label>
+                    <input type="text" id="tecnico" name="tecnico" placeholder="Ej: Luca Barria" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Fecha del Relevamiento:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="equipo-modelo">Modelo de Procesador / CPU:</label>
+                    <input type="text" id="equipo-modelo" name="equipo-modelo" placeholder="Ej: Intel Core i5" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ram-tecnologia">Tecnología de Memoria RAM:</label>
+                    <select id="ram-tecnologia" name="ram-tecnologia" required>
+                        <option value="" disabled selected>Seleccione una opción...</option>
+                        <option value="ddr3">DDR3</option>
+                        <option value="ddr4">DDR4</option>
+                        <option value="ddr5">DDR5</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="almacenamiento-tipo">Tipo de Almacenamiento:</label>
+                    <select id="almacenamiento-tipo" name="almacenamiento-tipo" required>
+                        <option value="" disabled selected>Seleccione una opción...</option>
+                        <option value="hdd">Disco Duro Mecánico (HDD)</option>
+                        <option value="ssd-sata">Disco Estado Sólido (SSD SATA)</option>
+                        <option value="ssd-nvme">Unidad M.2 NVMe (Alta velocidad)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="observaciones">Observaciones y Diagnóstico Técnico:</label>
+                    <textarea id="observaciones" name="observaciones" rows="5" placeholder="Escriba aquí los detalles del estado del hardware, componentes dañados, limpieza necesaria, etc..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Enviar Registro</button>
+                    <button type="reset" class="btn-reset">Limpiar Todo</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>
