@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Relevamiento</title>
+    <title>Formulario de Relevamiento Completo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <div class="nav-container">
             <span class="logo">Soporte Técnico</span>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="índice.html">Inicio</a></li>
                 <li><a href="formulario.html" class="active">Formulario de Relevamiento</a></li>
             </ul>
         </div>
@@ -21,60 +21,116 @@
     <main class="main-content">
         <div class="form-container">
             <header class="form-header">
-                <h2>Formulario Técnico de Hardware</h2>
-                <p>Carga de datos del equipo evaluado</p>
+                <h2>Formulario Técnico de Hardware Avanzado</h2>
+                <p>Práctica completa de captura de datos y componentes</p>
             </header>
 
-            <form action="#" method="POST">
+            <form action="#" method="POST" enctype="multipart/form-data">
+                
+                <div class="form-group-title">1. Identificación y Seguridad</div>
                 
                 <div class="form-group">
-                    <label for="tecnico">Nombre del Técnico:</label>
+                    <label for="tecnico">Nombre del Técnico (Texto):</label>
                     <input type="text" id="tecnico" name="tecnico" placeholder="Ej: Luca Barria" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="fecha">Fecha del Relevamiento:</label>
+                    <label for="password-tecnico">Contraseña de Validación Técnica (Password):</label>
+                    <input type="password" id="password-tecnico" name="password-tecnico" placeholder="Ingrese su clave de operario" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Fecha del Relevamiento (Date):</label>
                     <input type="date" id="fecha" name="fecha" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="equipo-modelo">Modelo de Procesador / CPU:</label>
-                    <input type="text" id="equipo-modelo" name="equipo-modelo" placeholder="Ej: Intel Core i5" required>
+                    <label for="hora">Hora de Inicio del Diagnóstico (Time):</label>
+                    <input type="time" id="hora" name="hora">
+                </div>
+
+
+                <div class="form-group-title">2. Métricas y Componentes Analizados</div>
+
+                <div class="form-group">
+                    <label for="cant-modulos">Cantidad de Módulos RAM instalados (Number):</label>
+                    <input type="number" id="cant-modulos" name="cant-modulos" min="1" max="8" value="1">
                 </div>
 
                 <div class="form-group">
-                    <label for="ram-tecnologia">Tecnología de Memoria RAM:</label>
+                    <label for="temperatura-micro">Temperatura de la CPU en reposo (Range):</label>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span>0°C</span>
+                        <input type="range" id="temperatura-micro" name="temperatura-micro" min="0" max="100" value="45">
+                        <span>100°C</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="color-gabinete">Color predominante del Chasis/Gabinete (Color):</label>
+                    <input type="color" id="color-gabinete" name="color-gabinete" value="#21252b" style="height: 40px; cursor: pointer;">
+                </div>
+
+
+                <div class="form-group-title">3. Clasificación del Sistema</div>
+
+                <div class="form-group">
+                    <label for="ram-tecnologia">Tecnología de Memoria RAM (Select):</label>
                     <select id="ram-tecnologia" name="ram-tecnologia" required>
                         <option value="" disabled selected>Seleccione una opción...</option>
-                        <option value="ddr3">DDR3</option>
-                        <option value="ddr4">DDR4</option>
-                        <option value="ddr5">DDR5</option>
+                        <option value="ddr3">DDR3 (Equipos antiguos)</option>
+                        <option value="ddr4">DDR4 (Estándar de laboratorio)</option>
+                        <option value="ddr5">DDR5 (Sistemas de alto rendimiento)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="almacenamiento-tipo">Tipo de Almacenamiento:</label>
-                    <select id="almacenamiento-tipo" name="almacenamiento-tipo" required>
-                        <option value="" disabled selected>Seleccione una opción...</option>
-                        <option value="hdd">Disco Duro Mecánico (HDD)</option>
-                        <option value="ssd-sata">Disco Estado Sólido (SSD SATA)</option>
-                        <option value="ssd-nvme">Unidad M.2 NVMe (Alta velocidad)</option>
-                    </select>
+                    <label for="buscar-driver">Buscar Driver / Controladora específica (Search):</label>
+                    <input type="search" id="buscar-driver" name="buscar-driver" placeholder="Ej: Realtek Audio, NVIDIA GameReady...">
+                </div>
+
+
+                <div class="form-group-title">4. Diagnóstico Final y Archivos</div>
+
+                <div class="form-group">
+                    <label>¿El equipo superó la prueba de estrés técnico? (Radio):</label>
+                    <div class="radio-checkbox-group">
+                        <label><input type="radio" name="estres-test" value="aprobado" checked> Aprobado (Estable)</label>
+                        <label><input type="radio" name="estres-test" value="falla"> Falla (Pantallazo azul / Apagado)</label>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="observaciones">Observaciones y Diagnóstico Técnico:</label>
-                    <textarea id="observaciones" name="observaciones" rows="5" placeholder="Escriba aquí los detalles del estado del hardware, componentes dañados, limpieza necesaria, etc..."></textarea>
+                    <label>Mantenimiento preventivo aplicado en el acto (Checkbox):</label>
+                    <div class="radio-checkbox-group">
+                        <label><input type="checkbox" name="servicio" value="limpieza"> Soplado e higiene interna</label>
+                        <label><input type="checkbox" name="servicio" value="pasta"> Renovación de grasa siliconada</label>
+                        <label><input type="checkbox" name="servicio" value="pila"> Reemplazo de pila CR2032 (BIOS)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="informe-soft">Adjuntar captura de CPU-Z o informe de CrystalDisk (File):</label>
+                    <input type="file" id="informe-soft" name="informe-soft" accept=".jpg, .jpeg, .png, .pdf">
+                </div>
+
+                <div class="form-group">
+                    <label for="observaciones">Informe detallado de fallas encontradas (Textarea):</label>
+                    <textarea id="observaciones" name="observaciones" rows="4" placeholder="Anote acá cualquier capacitor hinchado, ruidos extraños en los coolers o sectores defectuosos en el disco..."></textarea>
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn-submit">Enviar Registro</button>
-                    <button type="reset" class="btn-reset">Limpiar Todo</button>
+                    <button type="submit" class="btn-submit">Registrar Relevamiento</button>
+                    <button type="reset" class="btn-reset">Resetear Formulario</button>
                 </div>
 
             </form>
         </div>
     </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 - Trabajo Práctico de Relevamiento de Hardware. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
